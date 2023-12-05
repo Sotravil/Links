@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect</title>
+  <style>
+    body {
+      background-color: #000;
+      font-size: 72px;
+      text-align: center;
+      margin-top: 20%;
+      font-family: Mold;
+      color: white;
+    }
+
+    /* Define the animation */
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+    }
+
+    /* Apply the animation to the countdown element */
+    #countdown {
+      animation: slideUp 2s infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="countdown">5</div>
+
+  <script>
+    // Countdown function
+    function startCountdown() {
+      var count = 5;
+      var countdownElement = document.getElementById("countdown");
+
+      var countdownInterval = setInterval(function() {
+        count--;
+
+        if (count === 0) {
+          clearInterval(countdownInterval);
+          // Redirect to the desired URL after countdown finishes
+          window.location.href = "https://shrinkme.info/Reedirect"; // Replace with your URL
+        } else {
+          countdownElement.textContent = count;
+        }
+      }, 1000);
+    }
+
+    // Reset countdown on page load
+    window.onload = function() {
+      startCountdown();
+    };
+  </script>
+
+</body>
+</html>
